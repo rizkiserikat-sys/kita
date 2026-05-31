@@ -1,0 +1,326 @@
+/* ==========================================================================
+   1. RESET & SETUP UMUM (FONT RETRO GAME)
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    background-color: #05010a;
+    color: #ffffff;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Helper Kelas untuk Menyembunyikan Layar */
+.hidden {
+    display: none !important;
+}
+
+/* ==========================================================================
+   2. SCREEN 0: LAYAR PEMBUKA (START SCREEN)
+   ========================================================================== */
+#start-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(180deg, #18052c 0%, #05010a 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    text-align: center;
+    padding: 20px;
+}
+
+.start-content h1 {
+    font-size: 28px;
+    color: #ffffff;
+    text-shadow: 0 0 10px #ff94ce, 0 0 20px #ff94ce;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+#btn-start {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 11px;
+    background: linear-gradient(135deg, #ff94ce 0%, #ff52af 100%);
+    color: white;
+    border: 2px solid #ffffff;
+    padding: 15px 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(255, 148, 206, 0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#btn-start:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(255, 148, 206, 0.8);
+}
+
+/* ==========================================================================
+   3. SCREEN 1: GAME VISUAL NOVEL (MAIN GAME SCREEN)
+   ========================================================================== */
+#game-screen {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url('assets/foto-pixel-diluar.jpg'); /* Background langit malam */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding-bottom: 3vh;
+}
+
+/* Wadah Karakter Utama */
+/* ==========================================================================
+   PERBAIKAN POSISI KARAKTER (GESER KE KIRI & PERKECIL)
+   ========================================================================== */
+.character-container {
+    position: absolute;
+    bottom: -20px; /* Angka negatif membuat karakter lebih turun ke bawah */
+    left: 2%;      /* Posisi kiri */
+    height: 75vh;  /* Tinggi karakter */
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.character-container { 
+    position: absolute; 
+    bottom: 0; 
+    left: 0; /* Ubah left: 5% jadi 0 */
+    height: 50vh; 
+    z-index: 5; 
+}
+
+/* Kotak Dialog Utama */
+.dialogue-box {
+    position: relative;
+    width: 90%;
+    max-width: 850px;
+    background: rgba(26, 9, 51, 0.9);
+    border: 4px solid #ff94ce;
+    border-radius: 12px;
+    padding: 25px;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 0 20px rgba(255, 148, 206, 0.3), inset 0 0 15px rgba(0,0,0,0.6);
+    z-index: 10;
+}
+
+/* Label Nama Karakter */
+.character-name {
+    position: absolute;
+    top: -18px;
+    left: 25px;
+    background: linear-gradient(135deg, #ff52af 0%, #9d247c 100%);
+    border: 2px solid #ffffff;
+    padding: 8px 18px;
+    font-size: 11px;
+    border-radius: 6px;
+    color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* Teks Alur Cerita */
+.dialogue-text {
+    font-size: 11px;
+    line-height: 1.8;
+    color: #ffffff;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+}
+
+/* Wadah Tombol Pilihan Cerita */
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+/* Tombol Pilihan Opsi Percakapan */
+.btn-option {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    width: 100%;
+    text-align: left;
+    background: rgba(51, 15, 92, 0.8);
+    border: 2px solid #ff94ce;
+    color: #ffffff;
+    padding: 12px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    line-height: 1.4;
+}
+
+.btn-option:hover {
+    background: #ff94ce;
+    color: #1a0933;
+    transform: translateX(5px);
+    box-shadow: 0 0 10px rgba(255, 148, 206, 0.5);
+}
+
+.btn-back {
+    margin-top: 30px;
+    padding: 10px 20px;
+    background: #1a0933;
+    border: 2px solid #ff94ce;
+    color: white;
+    cursor: pointer;
+    font-family: 'Press Start 2P', cursive;
+}
+
+/* ==========================================================================
+   4. SCREEN 2: ALBUM KENANGAN (HORIZONTAL LAYOUT / KIRI-KANAN)
+   ========================================================================== */
+/* ==========================================================================
+   4. SCREEN 2: ALBUM KENANGAN (NORMAL FULL SCREEN - HORIZONTAL)
+   ========================================================================== */
+#gallery-screen {
+    background: #05010a; /* Warna gelap yang sama */
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+/* Merapikan Judul */
+#gallery-screen h2 {
+    margin-bottom: 30px;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.gallery-container {
+    width: 100%;
+    /* Hapus flex-direction agar konten tidak dipaksa kumpul di tengah */
+}
+
+/* Judul Album Kenangan (Tetap di Atas Nyaman) */
+.gallery-title {
+    font-size: 18px;
+    color: #ffffff;
+    text-shadow: 0 0 8px #ff94ce;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Grid Pembungkus Foto (Berbaris Penuh dari Kiri ke Kanan Layar) */
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1000px;
+}
+
+/* Kustomisasi Desain Scrollbar Kiri-Kanan (Chrome, Edge, Safari) */
+.photo-grid::-webkit-scrollbar {
+    height: 10px;
+}
+.photo-grid::-webkit-scrollbar-track {
+    background: #1a0933;
+    border-radius: 5px;
+}
+.photo-grid::-webkit-scrollbar-thumb {
+    background: #ff94ce;
+    border-radius: 5px;
+}
+.photo-grid::-webkit-scrollbar-thumb:hover {
+    background: #ff52af;
+}
+
+/* Desain Kartu Frame Foto Kenangan */
+.photo-card {
+    background: rgba(26, 9, 51, 0.8);
+    border: 3px solid #ff94ce;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.photo-card:hover {
+    transform: scale(1.05); /* Sedikit membesar saat dihover */
+}
+
+/* Gambar Kenangan di dalam Frame */
+.photo-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Keterangan/Caption di Bawah Foto */
+.photo-card p {
+    font-size: 11px;
+    line-height: 1.8;
+    color: #ffffff;
+    margin: 0;
+    text-align: center;
+    white-space: normal; /* Memaksa teks teks tetap membungkus ke bawah, tidak memanjang ke samping */
+    font-family: 'Press Start 2P', cursive;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+}
+
+#lightbox {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#lightbox.hidden { display: none; }
+
+#lightbox img {
+    max-width: 90%;
+    max-height: 80%;
+    border: 4px solid #ff94ce;
+}
+
+/* Tambahkan ini di paling bawah file style.css */
+@media (max-width: 600px) {
+    .dialogue-box {
+        width: 95% !important; 
+        padding: 10px !important;
+    }
+    
+    #dialogue-text {
+        font-size: 10px !important; 
+    }
+    
+    .btn-option {
+        font-size: 10px !important;
+        padding: 8px !important;
+    }
+    
+    .character-container {
+        height: 40vh !important; 
+    }
+}
