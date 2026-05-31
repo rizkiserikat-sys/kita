@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    
+    <!-- PASTE DI SINI -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Bujukan Biar Ade Bisa Kembali Lagi✨</title>
+    <!-- Font Retro Game -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- File Musik Latar Belakang -->
+    <audio id="bg-music" loop></audio>
+
+    <!-- SCREEN 0: LAYAR PEMBUKA (START SCREEN) -->
+    <div id="start-screen">
+        <div class="start-content">
+            <h1>Tolong Baca Ini Yaaa</h1>
+            <p style="color: #ff94ce; font-size: 10px; margin-bottom: 30px; line-height: 1.8;">
+                Aa buat ini demi bisa bujuk kamu kembali hhe
+            </p>
+            <button id="btn-start" onclick="startGameNow()">Klik untuk Mulai Cerita ✨</button>
+        </div>
+    </div>
+
+    <!-- SCREEN 1: GAME VISUAL NOVEL -->
+    <div id="game-screen" class="screen">
+        <div class="character-container">
+            <img id="char-img" src="assets/gue-diem.png" alt="Karakter">
+        </div>
+        <div class="dialogue-box">
+            <h3 id="char-name" class="character-name">Rizki</h3>
+             <p id="dialogue-text" class="dialogue-text"></p>            <div id="options-container" class="options-container"></div>
+        </div>
+    </div>
+
+    <!-- SCREEN 2: ALBUM KENANGAN (4 FOTO SEPERTI DI VS CODE) -->
+    <div id="gallery-screen" class="screen hidden">
+        <div class="gallery-container">
+            <h2 class="gallery-title">Album Kenangan Kita ✨</h2>
+            
+            <div class="photo-grid">
+                <!-- Foto 1: Jalan Bareng -->
+                <div class="photo-card">
+                    <img src="assets/fotbar.jpg" alt="Foto Kenangan 1">
+                    <p>Hari pertama kita bisa ketemu. Aa kangen banget sama momen ini, saat aa bisa ada di samping kamu dan ngerasa jadi cowok paling beruntung. ❤️</p>
+                </div>
+
+                <!-- Foto 2: Main Game Bareng -->
+                <div class="photo-card">
+                    <img src="assets/mabar.jpg" alt="Foto Mabar">
+                    <p>Momen pas kita main bareng. Gatau ngapain tapi main ini seru dulu sama kamu, Kamu pas disini lucu banget buatnya hihi.</p>
+                </div>
+
+                <!-- Foto 3: Hadiah Buku / Barang -->
+                <div class="photo-card">
+                    <img src="assets/scrapbook.jpg" alt="Hadiah Buku">
+                    <p>Buku pemberian dari kamu. Setiap kali aa lihat atau baca ini, aa selalu diingatkan kalau aa punya seseorang yang sangat peduli dan berharga BANGETT di hidup aa.</p>
+                </div>
+
+                <!-- Foto 4: Sleep Call -->
+                <div class="photo-card">
+                    <img src="assets/sleepcall.jpg" alt="Screenshot Sleep Call">
+                    <p>Ssst... ini momen sleep call kita. Di saat hari lagi capek-capeknya, liat kamu dan diem dieman lewat vc itu selalu jadi obat paling ampuh buat aa walaupun diem dieman tapi itu nyaman bangett.</p>
+                </div>
+            </div>
+
+            <!-- Tombol Kembali ke Game -->
+            <div style="text-align: center; margin-top: 25px; margin-bottom: 25px;">
+                <button onclick="goToGame()" class="btn-option" style="width: auto; display: inline-block; padding: 12px 25px;">
+                    ⬅️ Kembali Bicara dengannya
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+    <!-- Tambahkan ini di bagian paling bawah sebelum </body> -->
+<div id="lightbox" class="hidden">
+    <span id="close-lightbox">&times;</span>
+    <div class="lightbox-content">
+        <img id="lightbox-img" src="" alt="Full View">
+        <p id="lightbox-caption"></p>
+    </div>
+</div>
+
+</body>
+</html>
